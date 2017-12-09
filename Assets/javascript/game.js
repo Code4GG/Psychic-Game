@@ -1,4 +1,3 @@
-
 		let letterGuessed =[];
 		let wins = 0;
 		let loses = 0;
@@ -7,6 +6,7 @@
 		let randomLetter = alphabetArr[Math.floor(Math.random()*alphabetArr.length)];
 		let correctLetter = randomLetter;
 		let reset = document.getElementById('guessesLeft');
+		let letterGuessedArr = letterGuessed.length[0];
 
 		
 		window.addEventListener('keyup', function(event){
@@ -21,20 +21,23 @@
 
 				wins++;
 				document.getElementById('wins').innerHTML = wins;
+				document.getElementById('guessesLeft').innerHTML = guessesLeft;
+				guessesLeft = 10;
 				correctLetter = alphabetArr[Math.floor(Math.random()*alphabetArr.length)];
 
 			} else if (userGuess !== correctLetter){
 				
-				loses++;
-				document.getElementById('loses').innerHTML = loses;
-				
 				guessesLeft--;
 				document.getElementById('guessesLeft').innerHTML = guessesLeft;
+
 			}
 
 			if (guessesLeft <=0){
 				document.getElementById('guessesLeft').innerHTML= guessesLeft;
 				guessesLeft = 10;
+				loses++;
+				document.getElementById('loses').innerHTML = loses;
+				document.getElementById('guessesSoFar').innerHTML = "[" + letterGuessed.splice(0) + "]";
 				// call a function that picks new letter, resets guessesLeft to 10. 
 			}
 			return guessesLeft;
@@ -42,3 +45,4 @@
 
 		
 
+		
