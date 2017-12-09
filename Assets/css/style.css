@@ -1,0 +1,10 @@
+
+body{
+	background-image: url(../images/trippy.jpg);
+	text-align: center;
+	color:white;
+	background-size: cover;
+	font-size: 32px;
+	-webkit-text-stroke: 1px black;
+
+}
